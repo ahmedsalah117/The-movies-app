@@ -34,7 +34,7 @@ function App() {
     setUserData(decodedToken);
   }
 
-  const Routers = createBrowserRouter([
+  const Routers = createHashRouter([
     {
       path: "/",
       element: <RouteLayout userData={userData} setUserData={setUserData} />,
