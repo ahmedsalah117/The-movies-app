@@ -33,7 +33,7 @@ function Login({ saveUserData }) {
       setIsLoading(false);
       localStorage.setItem("userToken", data.token);
       saveUserData();
-      navigate("/The-movies-app");
+      navigate("/");
       //here is a test comment
     } else {
       setIsLoading(false);
