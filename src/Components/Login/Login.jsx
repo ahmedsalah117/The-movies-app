@@ -29,12 +29,11 @@ function Login({ saveUserData }) {
       loginData
     );
 
-    console.log(data.message);
     if (data.message == "success") {
       setIsLoading(false);
       localStorage.setItem("userToken", data.token);
       saveUserData();
-      navigate("/");
+      navigate("The-movies-app/");
     } else {
       setIsLoading(false);
       setLoginError(data.message);
@@ -58,7 +57,6 @@ function Login({ saveUserData }) {
       sendToAPI();
     }
 
-    console.log(validationResult);
     // sendToAPI();
   }
 
