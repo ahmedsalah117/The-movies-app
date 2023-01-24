@@ -33,7 +33,7 @@ function Login({ saveUserData }) {
       setIsLoading(false);
       localStorage.setItem("userToken", data.token);
       saveUserData();
-      navigate("/");
+      navigate("");
       //here is a test comment
       //here is a test comment
     } else {
