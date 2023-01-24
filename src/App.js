@@ -40,7 +40,7 @@ function App() {
       element: <RouteLayout userData={userData} setUserData={setUserData} />,
       children: [
         {
-          path: "https://ahmedsalah117.github.io/The-movies-app",
+          path: "The-movies-app",
           element: (
             <ProtectedRoute>
               <Home />
