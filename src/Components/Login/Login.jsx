@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Joi from "joi";
 import { useNavigate } from "react-router-dom";
-
+import classes from "./Login.module.css";
 function Login({ saveUserData }) {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -80,42 +80,45 @@ function Login({ saveUserData }) {
 
   return (
     <>
-      <section className="login-section">
-        <form onSubmit={loginSubmit} className="position-relative">
-          <label htmlFor="email" className="position-absolute ">
-            email
-          </label>
-          <input
-            onChange={updatingLoginData}
-            type="email"
-            className="form-control w-75 m-auto mb-5"
-            name="email"
-            id="email"
-          />
-          <label htmlFor="password" className="position-absolute">
-            password
-          </label>
-          <input
-            onChange={updatingLoginData}
-            type="password"
-            className="form-control w-75 m-auto"
-            name="password"
-            id="password"
-          />
+      <section className={classes["login-section"]}>
+        <form onSubmit={loginSubmit} className="">
+          <div className="w-50 m-auto">
+            <div className="w-100 mt-5">
+              <input
+                onChange={updatingLoginData}
+                type="email"
+                className="form-control w-100  mb-5 fs-4"
+                name="email"
+                id="email"
+                placeholder="Email address"
+              />
 
-          {loginError ? (
-            <div className="alert alert-danger my-3 w-75 m-auto">
-              {loginError}
+              <input
+                onChange={updatingLoginData}
+                type="password"
+                className="form-control w-100 fs-4"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+
+              {loginError ? (
+                <div className="alert alert-danger my-3 w-75 m-auto">
+                  {loginError}
+                </div>
+              ) : (
+                ""
+              )}
+
+              <button type="submit" className="btn btn-info mt-4 fs-4">
+                {isLoading ? (
+                  <i className="fas fa-spin fa-spinner"></i>
+                ) : (
+                  "Login"
+                )}
+              </button>
             </div>
-          ) : (
-            ""
-          )}
-          <button
-            type="submit"
-            className="btn btn-info position-absolute login-btn "
-          >
-            {isLoading ? <i className="fas fa-spin fa-spinner"></i> : "Login"}
-          </button>
+          </div>
         </form>
       </section>
     </>

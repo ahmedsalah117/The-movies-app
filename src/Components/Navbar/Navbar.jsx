@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../Context/SearchContext";
 import { SearchContext } from "./../Context/SearchContext";
-
+import classes from "./Navbar.module.css";
 function Navbar({ userData, logOut }) {
   let {
     searchedValue,
@@ -29,7 +29,7 @@ function Navbar({ userData, logOut }) {
     <>
       <nav className="navbar pt-4 navbar-dark navbar-expand-lg bg-light mb-5">
         <div className="container-fluid">
-          <Link className="navbar-brand Logo pb-2 ms-3" to="">
+          <Link className="navbar-brand Logo pb-2 ms-3 d-flex" to="">
             Noxe
           </Link>
           <button
@@ -46,7 +46,7 @@ function Navbar({ userData, logOut }) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             {userData !== null ? (
               <>
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
                   <li className="nav-item">
                     <Link className="nav-link active" aria-current="page" to="">
                       Home
@@ -83,44 +83,52 @@ function Navbar({ userData, logOut }) {
               ""
             )}
 
-            <div className="ms-3 me-3  ms-auto d-flex">
-              <form className="d-flex me-3" role="search">
-                <input
-                  onChange={(e) => {
-                    return searchFunction(e.target.value);
-                  }}
-                  className="form-control search-input"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-              </form>
-              <div className="icons pt-2">
-                <i className="fa-brands fa-facebook-f"></i>
-                <i className="fa-brands fa-spotify"></i>
-                <i className="fa-brands fa-instagram"></i>
-                <i className="fa-brands fa-youtube"></i>
-              </div>
-            </div>
-
             {userData !== null ? (
               <>
-                <Link to="profile" className="mx-4 nav-link">
-                  Profile
-                </Link>
-                <h4 className="mx-4" onClick={logOut}>
-                  Logout
-                </h4>
+                <div
+                  className={`ms-3 ms-auto d-flex ${classes.searchFormHolder}`}
+                >
+                  <form
+                    className={`d-flex ${classes.searchInput} me-3`}
+                    role="search"
+                  >
+                    <input
+                      onChange={(e) => {
+                        return searchFunction(e.target.value);
+                      }}
+                      className="form-control search-input"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                  </form>
+                  <div className="icons pt-2">
+                    <i className="fa-brands fa-facebook-f"></i>
+                    <i className="fa-brands fa-spotify"></i>
+                    <i className="fa-brands fa-instagram"></i>
+                    <i className="fa-brands fa-youtube"></i>
+                  </div>
+                </div>
+                <div className={`${classes.profileBtnHolder} d-flex`}>
+                  <Link to="profile" className="nav-link me-3">
+                    Profile
+                  </Link>
+                  <h4 className="pt-1" onClick={logOut}>
+                    Log out
+                  </h4>
+                </div>
               </>
             ) : (
-              <>
-                <Link className="mx-4 nav-link" to="login">
+              <div
+                className={`d-flex ms-auto flex-wrap ${classes.loginPgBtns}`}
+              >
+                <Link className="mx-4 nav-link d-block" to="login">
                   Login
                 </Link>
-                <Link className="mx-4 nav-link" to="register">
+                <Link className="mx-4 nav-link d-block" to="register">
                   Register
                 </Link>
-              </>
+              </div>
             )}
           </div>
         </div>

@@ -1,0 +1,67 @@
+.profileBtnHolder {
+  color: #ffffff8c;
+  font-size: 1.6rem !important;
+}
+.profileBtnHolder a,
+h4 {
+  transition: all 0.3s;
+}
+.profileBtnHolder a:hover {
+  color: #ffffffd8;
+}
+.profileBtnHolder h4:hover {
+  color: #ffffffd8;
+}
+
+@media screen and (max-width: 992px) {
+  .loginPgBtns a {
+    /* width: 100% !important; */
+    width: 100%;
+  }
+
+  .profileBtnHolder {
+    flex-wrap: wrap;
+  }
+  .profileBtnHolder a {
+    width: 100%;
+    display: block;
+    margin-right: 0rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .profileBtnHolder h4 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .profileBtnHolder {
+    display: flex !important;
+  }
+}
+
+@media screen and (min-width: 990px) and (max-width: 1068px) {
+  .searchInput {
+    width: 50%;
+    margin-right: 1rem !important;
+  }
+
+  li,
+  a,
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  .searchFormHolder {
+    margin-right: -1rem !important;
+  }
+}
+
+@media screen and (min-width: 1069px) {
+  .profileBtnHolder a {
+    margin-left: 1.2rem !important;
+  }
+  .searchInput {
+    margin-right: 1rem !important;
+  }
+}
