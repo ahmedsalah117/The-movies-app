@@ -22,8 +22,6 @@ function Navbar({ userData, logOut }) {
     } else {
       setSearchedValue(value);
     }
-
-    // console.log("The nav function is working", searchedValue);
   }
   return (
     <>
