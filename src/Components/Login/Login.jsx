@@ -34,8 +34,6 @@ function Login({ saveUserData }) {
       localStorage.setItem("userToken", data.token);
       saveUserData();
       navigate("/");
-      //here is a test comment
-      //here is a test comment
     } else {
       setIsLoading(false);
       setLoginError(data.message);
